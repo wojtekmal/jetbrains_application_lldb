@@ -1,0 +1,59 @@
+Start testing: Oct 17 11:49 CEST
+----------------------------------------------------------
+1/2 Testing: ElfParserTest.HandlesNonexistantExecutable
+1/2 Test: ElfParserTest.HandlesNonexistantExecutable
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=ElfParserTest.HandlesNonexistantExecutable"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"ElfParserTest.HandlesNonexistantExecutable" start time: Oct 17 11:49 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ElfParserTest.HandlesNonexistantExecutable
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ElfParserTest
+[ RUN      ] ElfParserTest.HandlesNonexistantExecutable
+[       OK ] ElfParserTest.HandlesNonexistantExecutable (0 ms)
+[----------] 1 test from ElfParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"ElfParserTest.HandlesNonexistantExecutable" end time: Oct 17 11:49 CEST
+"ElfParserTest.HandlesNonexistantExecutable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: TracerIntegrationTest.TracesIntegerWritesCorrectly
+2/2 Test: TracerIntegrationTest.TracesIntegerWritesCorrectly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=TracerIntegrationTest.TracesIntegerWritesCorrectly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" start time: Oct 17 11:49 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = TracerIntegrationTest.TracesIntegerWritesCorrectly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from TracerIntegrationTest
+[ RUN      ] TracerIntegrationTest.TracesIntegerWritesCorrectly
+5
+global_int_to_watch    write    0 -> 5
+[       OK ] TracerIntegrationTest.TracesIntegerWritesCorrectly (49 ms)
+[----------] 1 test from TracerIntegrationTest (49 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (49 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.05 sec
+----------------------------------------------------------
+Test Passed.
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" end time: Oct 17 11:49 CEST
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 17 11:49 CEST

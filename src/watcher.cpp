@@ -1,5 +1,5 @@
 #include "watcher.h"
-#include <elf_parser.h>
+#include "elf_parser.h"
 #include <cstdlib>
 #include <sys/ptrace.h>
 #include <cstddef>
@@ -64,7 +64,6 @@ int watch(const std::vector<std::string>& args)
         std::map<uint64_t, uint64_t> size_masks = {{1, 0}, {2, 1}, {4, 3}, {8, 2}};
         dr7 |= (size_masks[symbol_info.size] << 18) + (3ULL << 16) + 3;
         dr7 |= (size_masks[symbol_info.size] << 22) + (1ULL << 20) + 12;
-        bool first_stop = true;
 
         while (true)
         {
@@ -73,7 +72,7 @@ int watch(const std::vector<std::string>& args)
             int status;
             waitpid(pid, &status, WUNTRACED);
 
-            if (WIFSTOPPED(status) && !first_stop)
+            if (WIFSTOPPED(status))
             {
                 if (stopped_because_of_read(pid))
                 {
@@ -86,14 +85,12 @@ int watch(const std::vector<std::string>& args)
                     current_value = new_value;
                 }
             }
-            else if (first_stop)
-            {
-                first_stop = false;
-            }
             else
             {
                 break;
             }
         }
     }
+
+    return 0;
 }
