@@ -1,5 +1,5 @@
 #include <iostream>
-int global_variable;
+volatile int global_variable;
 
 int main()
 {

@@ -1,0 +1,99 @@
+#include "watcher.h"
+#include <elf_parser.h>
+#include <cstdlib>
+#include <sys/ptrace.h>
+#include <cstddef>
+#include <sys/user.h>
+#include <iostream>
+#include <unistd.h>
+#include <wait.h>
+#include <map>
+
+uint64_t get_current_value(SymbolInfo symbol_info, pid_t pid)
+{
+    uint64_t answer = ptrace(PTRACE_PEEKDATA, pid, symbol_info.address, nullptr);
+
+    if (symbol_info.size < 8)
+    {
+        answer &= (1ULL << (8 * symbol_info.size)) - 1;
+    }
+
+    return answer;
+}
+
+bool stopped_because_of_read(pid_t pid)
+{
+    uint64_t dr6 = ptrace(PTRACE_PEEKUSER, pid, offsetof(user, u_debugreg[6]), nullptr);
+    if (dr6 & 2) return false;
+    else return true;
+}
+
+int watch(const std::vector<std::string>& args)
+{
+    std::ios_base::sync_with_stdio(false);
+
+    std::string symbol = args[2];
+    std::string path = args[4];
+
+    pid_t pid = fork();
+
+    if (pid == 0)
+    {
+        ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
+        char* args[2] = {path.data(), nullptr};
+        execve(path.data(), args, nullptr);
+    }
+    else
+    {
+        waitpid(pid, nullptr, WUNTRACED);
+        auto symbol_info_opt = get_symbol_info(symbol, path, pid);
+
+        if (!symbol_info_opt)
+        {
+            std::cerr << "Couldn't find symbol " << symbol << " in executable " << path << "\n";
+            return EXIT_FAILURE;
+        }
+
+        auto symbol_info = *symbol_info_opt;
+        ptrace(PTRACE_POKEUSER, pid, offsetof(user, u_debugreg[0]), symbol_info.address);
+        ptrace(PTRACE_POKEUSER, pid, offsetof(user, u_debugreg[1]), symbol_info.address);
+        uint64_t current_value = get_current_value(symbol_info, pid);
+
+        uint64_t dr7 = ptrace(PTRACE_PEEKUSER, pid, offsetof(user, u_debugreg[7]), nullptr);
+        dr7 &= ~(0b11111111ULL << 16);
+        std::map<uint64_t, uint64_t> size_masks = {{1, 0}, {2, 1}, {4, 3}, {8, 2}};
+        dr7 |= (size_masks[symbol_info.size] << 18) + (3ULL << 16) + 3;
+        dr7 |= (size_masks[symbol_info.size] << 22) + (1ULL << 20) + 12;
+        bool first_stop = true;
+
+        while (true)
+        {
+            ptrace(PTRACE_POKEUSER, pid, offsetof(user, u_debugreg[7]), dr7);
+            ptrace(PTRACE_CONT, pid, nullptr, nullptr);
+            int status;
+            waitpid(pid, &status, WUNTRACED);
+
+            if (WIFSTOPPED(status) && !first_stop)
+            {
+                if (stopped_because_of_read(pid))
+                {
+                    std::cout << symbol << "    read     " << current_value << "\n";
+                }
+                else
+                {
+                    uint64_t new_value = get_current_value(symbol_info, pid);
+                    std::cout << symbol << "    write    " << current_value << " -> " << new_value << "\n";
+                    current_value = new_value;
+                }
+            }
+            else if (first_stop)
+            {
+                first_stop = false;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+}
