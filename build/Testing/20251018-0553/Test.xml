@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20251018-0553-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.31.6"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="klapa"
+	OSRelease="6.12.48+deb13-amd64"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Debian 6.12.48-1 (2025-09-20)"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="140"
+	ModelName="11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="16383"
+	TotalPhysicalMemory="15686"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="3800"
+	>
+	<Testing>
+		<StartDateTime>Oct 18 14:56 CEST</StartDateTime>
+		<StartTestTime>1760792196</StartTestTime>
+		<TestList/>
+		<EndDateTime>Oct 18 14:56 CEST</EndDateTime>
+		<EndTestTime>1760792196</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

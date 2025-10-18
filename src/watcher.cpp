@@ -30,8 +30,6 @@ bool stopped_because_of_read(pid_t pid)
 
 int watch(const std::vector<std::string>& args)
 {
-    std::ios_base::sync_with_stdio(false);
-
     std::string symbol = args[2];
     std::string path = args[4];
 

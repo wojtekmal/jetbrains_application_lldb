@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -g -std=gnu++17 -o CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/watcher.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/watcher.cpp",
+  "output": "CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -g -std=gnu++17 -o CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.cpp",
+  "output": "CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -g -std=gnu++17 -o CMakeFiles/gwatch.dir/src/gwatch.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/gwatch.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/gwatch.cpp",
+  "output": "CMakeFiles/gwatch.dir/src/gwatch.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -DTEST_BIN_DIR=\\\"/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin\\\" -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/elf_parser_tests.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/elf_parser_tests.cpp",
+  "output": "CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -DTEST_BIN_DIR=\\\"/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin\\\" -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=gnu++17 -o CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/watcher_tests.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/watcher_tests.cpp",
+  "output": "CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -g -std=gnu++17 -o CMakeFiles/test_int_incrementation.dir/test_programs/test_int_incrementation.cpp.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/test_programs/test_int_incrementation.cpp",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/test_programs/test_int_incrementation.cpp",
+  "output": "CMakeFiles/test_int_incrementation.dir/test_programs/test_int_incrementation.cpp.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/include -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -I/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build",
+  "command": "/usr/bin/g++ -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include -isystem /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest -g -std=c++17 -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -o _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
+}
+]

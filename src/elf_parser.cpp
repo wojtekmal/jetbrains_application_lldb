@@ -1,11 +1,12 @@
 #include "elf_parser.h"
+#include "dwarf_parser.h"
 #include <elf.h>
 #include <fstream>
 #include <string>
 #include <filesystem>
 #include <vector>
 
-std::optional<uintptr_t> get_aslr_offset(const fs::path& executable_path, pid_t pid)
+std::optional<uint64_t> get_aslr_offset(const fs::path& executable_path, pid_t pid)
 {
     std::ifstream maps_file("/proc/" + std::to_string(pid) + "/maps");
     if (!maps_file.is_open()) return std::nullopt;
@@ -25,7 +26,7 @@ std::optional<uintptr_t> get_aslr_offset(const fs::path& executable_path, pid_t 
             if (fs::equivalent(executable_path, backer_path))
             {
                 std::string first_address_str = addr_range.substr(0, addr_range.find('-'));
-                uintptr_t first_address = std::stoull(first_address_str, nullptr, 16);
+                uint64_t first_address = std::stoull(first_address_str, nullptr, 16);
                 return first_address - std::stoull(offset_str, nullptr, 16);
             }
         }
@@ -38,7 +39,7 @@ std::optional<uintptr_t> get_aslr_offset(const fs::path& executable_path, pid_t 
     return std::nullopt;
 }
 
-std::optional<SymbolInfo> get_symbol_info(const std::string& symbol, const fs::path& executable_path, pid_t pid)
+std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& executable_path)
 {
     std::ifstream executable_file(executable_path, std::ios::binary);
     if (!executable_file.is_open()) return std::nullopt;
@@ -47,16 +48,35 @@ std::optional<SymbolInfo> get_symbol_info(const std::string& symbol, const fs::p
 
     auto elf_header = *reinterpret_cast<Elf64_Ehdr*>(data);
     auto section_headers = reinterpret_cast<Elf64_Shdr*>(data + elf_header.e_shoff);
-    Elf64_Shdr symbol_table_header;
+    auto section_name_string_table = reinterpret_cast<char*>(data + section_headers[elf_header.e_shstrndx].sh_offset);
+    
+    std::optional<Elf64_Shdr> symbol_table_header_opt;
+    std::optional<Elf64_Shdr> debug_info_header_opt;
+    std::optional<Elf64_Shdr> debug_abbrev_header_opt;
+    std::string debug_info_name = ".debug_info";
+    std::string debug_abbrev_name = ".debug_abbrev";
 
     for (int i = 0; i < elf_header.e_shnum; i++)
     {
         if (section_headers[i].sh_type == SHT_SYMTAB)
         {
-            symbol_table_header = section_headers[i];
-            break;
+            symbol_table_header_opt = section_headers[i];
+        }
+        if (section_name_string_table + section_headers[i].sh_name == debug_info_name)
+        {
+            debug_info_header_opt = section_headers[i];
+        }
+        if (section_name_string_table + section_headers[i].sh_name == debug_abbrev_name)
+        {
+            debug_abbrev_header_opt = section_headers[i];
         }
     }
+
+    if (!symbol_table_header_opt.has_value()) return std::nullopt;
+    auto symbol_table_header = *symbol_table_header_opt;
+    auto symbol_is_signed = get_sign_info(symbol, data, debug_info_header_opt, debug_abbrev_header_opt);
+    
+    std::optional<SymbolInfo> symbol_info;
 
     Elf64_Sym* symbol_table = reinterpret_cast<Elf64_Sym*>(data + symbol_table_header.sh_offset);
     char* symbol_string_table = data + section_headers[symbol_table_header.sh_link].sh_offset;
@@ -67,14 +87,20 @@ std::optional<SymbolInfo> get_symbol_info(const std::string& symbol, const fs::p
         if (symbol == symbol_string_table + symbol_table[i].st_name)
         {
             Elf64_Sym symbol_entry = symbol_table[i];
-
-            auto aslr_offset_opt = get_aslr_offset(executable_path, pid);
-            if (!aslr_offset_opt) return std::nullopt;
-
-            uintptr_t real_address = *aslr_offset_opt + static_cast<uint64_t>(symbol_entry.st_value);
-            return SymbolInfo{real_address, symbol_entry.st_size};
+            symbol_info = SymbolInfo{static_cast<uintptr_t>(symbol_entry.st_value), symbol_entry.st_size, {}};
+            break;
         }
     }
 
-    return std::nullopt;
+    return symbol_info;
+}
+
+std::optional<SymbolInfo> get_symbol_info(const std::string& symbol, const fs::path& executable_path, pid_t pid)
+{
+    auto aslr_offset_opt = get_aslr_offset(executable_path, pid);
+    auto elf_data_opt = read_elf(symbol, executable_path);
+
+    if (!aslr_offset_opt || !elf_data_opt) return std::nullopt;
+    
+    return SymbolInfo{elf_data_opt->address + *aslr_offset_opt, elf_data_opt->size};
 }
