@@ -1,0 +1,10 @@
+global_int_to_watch    read     0
+global_int_to_watch    write    0 -> 1
+global_int_to_watch    read     1
+global_int_to_watch    write    1 -> 2
+global_int_to_watch    read     2
+global_int_to_watch    write    2 -> 3
+global_int_to_watch    read     3
+global_int_to_watch    write    3 -> 4
+global_int_to_watch    read     4
+global_int_to_watch    write    4 -> 5

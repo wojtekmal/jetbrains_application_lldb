@@ -28,7 +28,7 @@ bool stopped_because_of_read(pid_t pid)
     else return true;
 }
 
-int watch(const std::vector<std::string>& args)
+void watch(const std::vector<std::string>& args)
 {
     std::string symbol = args[2];
     std::string path = args[4];
@@ -49,7 +49,7 @@ int watch(const std::vector<std::string>& args)
         if (!symbol_info_opt)
         {
             std::cerr << "Couldn't find symbol " << symbol << " in executable " << path << "\n";
-            return EXIT_FAILURE;
+            throw std::runtime_error("Symbol not found.");
         }
 
         auto symbol_info = *symbol_info_opt;
@@ -89,6 +89,4 @@ int watch(const std::vector<std::string>& args)
             }
         }
     }
-
-    return 0;
 }

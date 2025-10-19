@@ -1,5 +1,5 @@
 #include "elf_parser.h"
-#include "dwarf_parser.h"
+//#include "dwarf_parser.h"
 #include <elf.h>
 #include <fstream>
 #include <string>
@@ -44,7 +44,7 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
     std::ifstream executable_file(executable_path, std::ios::binary);
     if (!executable_file.is_open()) return std::nullopt;
     std::vector<char> buffer(std::istreambuf_iterator<char>(executable_file), {});
-    char* data = buffer.data();
+    auto data = reinterpret_cast<uint8_t*>(buffer.data());
 
     auto elf_header = *reinterpret_cast<Elf64_Ehdr*>(data);
     auto section_headers = reinterpret_cast<Elf64_Shdr*>(data + elf_header.e_shoff);
@@ -53,8 +53,10 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
     std::optional<Elf64_Shdr> symbol_table_header_opt;
     std::optional<Elf64_Shdr> debug_info_header_opt;
     std::optional<Elf64_Shdr> debug_abbrev_header_opt;
+    std::optional<Elf64_Shdr> debug_str_header_opt;
     std::string debug_info_name = ".debug_info";
     std::string debug_abbrev_name = ".debug_abbrev";
+    std::string debug_str_name = ".debug_str";
 
     for (int i = 0; i < elf_header.e_shnum; i++)
     {
@@ -70,16 +72,21 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
         {
             debug_abbrev_header_opt = section_headers[i];
         }
+        if (section_name_string_table + section_headers[i].sh_name == debug_str_name)
+        {
+            debug_str_header_opt = section_headers[i];
+        }
     }
 
     if (!symbol_table_header_opt.has_value()) return std::nullopt;
     auto symbol_table_header = *symbol_table_header_opt;
-    auto symbol_is_signed = get_sign_info(symbol, data, debug_info_header_opt, debug_abbrev_header_opt);
-    
+    //auto symbol_is_signed = get_sign_info(symbol, data, debug_info_header_opt, debug_abbrev_header_opt, debug_str_header_opt);
+    auto symbol_is_signed = std::nullopt;
+
     std::optional<SymbolInfo> symbol_info;
 
     Elf64_Sym* symbol_table = reinterpret_cast<Elf64_Sym*>(data + symbol_table_header.sh_offset);
-    char* symbol_string_table = data + section_headers[symbol_table_header.sh_link].sh_offset;
+    char* symbol_string_table = reinterpret_cast<char*>(data + section_headers[symbol_table_header.sh_link].sh_offset);
     int symbol_count = symbol_table_header.sh_size / sizeof(Elf64_Sym);
 
     for (int i = 0; i < symbol_count; i++)
