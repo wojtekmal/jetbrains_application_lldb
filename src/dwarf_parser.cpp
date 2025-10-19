@@ -111,15 +111,9 @@ CompilationUnitHeader read_compilation_unit_header(uint8_t*& data)
     answer.address_size = read_bytes(data, 1);
 }
 
-std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
+std::unordered_map<uint64_t, AttributeData> get_attributes()
 {
-    uint64_t offset_size = context.header.abbrev_offset;
-    uint64_t address_size = context.header.address_size;
-    uint64_t abbrev_code = read_uleb128(data);
-    Abbrev abbrev = context.abbrev_map.at(abbrev_code);
-    std::unordered_map<uint64_t, AttributeData> attributes;
-
-    for (const Abbrev::Attribute& attr : abbrev.attributes)
+    for (const Abbrev::Attribute& attr : abbrev_attributes)
     {
         // I didn't have the time to write a 42 case switch statement, so I vibe coded it.
         Value attr_value;
@@ -256,6 +250,17 @@ std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
 
         attributes[attr.name] = {attr.form, attr_value};
     }
+}
+
+std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
+{
+    uint64_t offset_size = context.header.abbrev_offset;
+    uint64_t address_size = context.header.address_size;
+    uint64_t abbrev_code = read_uleb128(data);
+    Abbrev abbrev = context.abbrev_map.at(abbrev_code);
+    auto attributes = ;
+
+
 
     std::string name;
     auto name_attribute = attributes.find(DW_AT_name);
@@ -285,7 +290,7 @@ std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
         uint64_t type_abbrev_code = read_uleb128(type_die);
         Abbrev type_abbrev = context.abbrev_map.at(type_abbrev_code);
 
-        
+
     }
 }
 

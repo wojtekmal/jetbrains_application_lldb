@@ -30,8 +30,23 @@ bool stopped_because_of_read(pid_t pid)
 
 void watch(const std::vector<std::string>& args)
 {
-    std::string symbol = args[2];
-    std::string path = args[4];
+    std::string symbol;
+    std::string path;
+
+    for (int i = 0; i < args.size(); i++)
+    {
+        if (args[i] == "--var" && i + 1 < args.size())
+        {
+            symbol = args[i + 1];
+        }
+        if (args[i] == "--exec" && i + 1 < args.size())
+        {
+            path = args[i + 1];
+        }
+    }
+
+    if (symbol == "") throw std::runtime_error("--var was not given.");
+    if (path == "") throw std::runtime_error("--exec was not given.");
 
     pid_t pid = fork();
 
