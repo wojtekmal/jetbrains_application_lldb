@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/dwarf_parser.cpp" "CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o" "gcc" "CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o.d"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.cpp" "CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o" "gcc" "CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o.d"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/watcher.cpp" "CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o" "gcc" "CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o.d"
   )

@@ -13,6 +13,7 @@ add_library(
     gwatch_lib
     src/watcher.cpp
     src/elf_parser.cpp
+    src/dwarf_parser.cpp
 )
 
 add_executable(

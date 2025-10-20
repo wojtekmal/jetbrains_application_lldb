@@ -1,5 +1,4 @@
 #include "watcher.h"
-#include "elf_parser.h"
 #include <cstdlib>
 #include <sys/ptrace.h>
 #include <cstddef>
@@ -26,6 +25,23 @@ bool stopped_because_of_read(pid_t pid)
     uint64_t dr6 = ptrace(PTRACE_PEEKUSER, pid, offsetof(user, u_debugreg[6]), nullptr);
     if (dr6 & 2) return false;
     else return true;
+}
+
+std::string format(uint64_t value, const SymbolInfo& symbol_info)
+{
+    if (!symbol_info.is_signed.has_value() || *symbol_info.is_signed)
+    {
+        if (symbol_info.size == 4) return std::to_string(static_cast<uint32_t>(value));
+        if (symbol_info.size == 8) return std::to_string(static_cast<uint64_t>(value));
+    }
+    else
+    {
+        if (symbol_info.size == 4) return std::to_string(static_cast<int32_t>(value));
+        if (symbol_info.size == 8) return std::to_string(static_cast<int64_t>(value));
+    }
+
+    std::cerr << "Symbol size: " << symbol_info.size << "\n";
+    throw std::runtime_error("Unsupported symbol size.");
 }
 
 void watch(const std::vector<std::string>& args)
@@ -89,12 +105,12 @@ void watch(const std::vector<std::string>& args)
             {
                 if (stopped_because_of_read(pid))
                 {
-                    std::cout << symbol << "    read     " << current_value << "\n";
+                    std::cout << symbol << "    read     " << format(current_value, symbol_info) << "\n";
                 }
                 else
                 {
                     uint64_t new_value = get_current_value(symbol_info, pid);
-                    std::cout << symbol << "    write    " << current_value << " -> " << new_value << "\n";
+                    std::cout << symbol << "    write    " << format(current_value, symbol_info) << " -> " << format(new_value, symbol_info) << "\n";
                     current_value = new_value;
                 }
             }

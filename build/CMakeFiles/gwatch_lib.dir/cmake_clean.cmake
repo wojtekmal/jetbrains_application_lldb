@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o"
+  "CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o.d"
   "CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o"
   "CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o.d"
   "CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o"

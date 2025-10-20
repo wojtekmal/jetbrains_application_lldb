@@ -25,7 +25,6 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-string.h
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.h
- /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/types.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -377,7 +376,7 @@ CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-port.h
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-string.h
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h
- /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/types.h
+ /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.h
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/watcher.h
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h

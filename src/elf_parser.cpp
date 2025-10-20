@@ -1,5 +1,5 @@
 #include "elf_parser.h"
-//#include "dwarf_parser.h"
+#include "dwarf_parser.h"
 #include <elf.h>
 #include <fstream>
 #include <string>
@@ -80,8 +80,7 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
 
     if (!symbol_table_header_opt.has_value()) return std::nullopt;
     auto symbol_table_header = *symbol_table_header_opt;
-    //auto symbol_is_signed = get_sign_info(symbol, data, debug_info_header_opt, debug_abbrev_header_opt, debug_str_header_opt);
-    auto symbol_is_signed = std::nullopt;
+    auto symbol_is_signed = get_sign_info(symbol, data, debug_info_header_opt, debug_abbrev_header_opt, debug_str_header_opt);
 
     std::optional<SymbolInfo> symbol_info;
 
@@ -94,7 +93,7 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
         if (symbol == symbol_string_table + symbol_table[i].st_name)
         {
             Elf64_Sym symbol_entry = symbol_table[i];
-            symbol_info = SymbolInfo{static_cast<uintptr_t>(symbol_entry.st_value), symbol_entry.st_size, {}};
+            symbol_info = SymbolInfo{static_cast<uintptr_t>(symbol_entry.st_value), symbol_entry.st_size, symbol_is_signed};
             break;
         }
     }

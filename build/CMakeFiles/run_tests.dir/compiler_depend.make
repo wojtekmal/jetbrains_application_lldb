@@ -24,7 +24,6 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o: /home/wojtekmal/informaty
   _deps/googletest-src/googletest/include/gtest/internal/gtest-string.h \
   _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \
   /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.h \
-  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/types.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
   /usr/include/asm-generic/errno-base.h \
@@ -375,7 +374,7 @@ CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o: /home/wojtekmal/informatyka/
   _deps/googletest-src/googletest/include/gtest/internal/gtest-port.h \
   _deps/googletest-src/googletest/include/gtest/internal/gtest-string.h \
   _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \
-  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/types.h \
+  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/elf_parser.h \
   /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/watcher.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -884,6 +883,10 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
+/usr/include/c++/14/bits/unique_lock.h:
+
+/usr/include/c++/14/debug/assertions.h:
+
 /usr/include/c++/14/bits/streambuf_iterator.h:
 
 /usr/include/c++/14/bits/stream_iterator.h:
@@ -1006,12 +1009,6 @@ _deps/googletest-src/googletest/include/gtest/gtest-death-test.h:
 
 /usr/include/c++/14/bits/exception_ptr.h:
 
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/c++/14/bits/exception_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/locale.h:
-
 /usr/include/c++/14/bits/string_view.tcc:
 
 /usr/include/c++/14/bits/stl_tree.h:
@@ -1049,6 +1046,12 @@ _deps/googletest-src/googletest/include/gtest/gtest-matchers.h:
 _deps/googletest-src/googletest/include/gtest/internal/gtest-port-arch.h:
 
 /usr/include/c++/14/bits/memory_resource.h:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/c++/14/bits/exception_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/locale.h:
 
 /usr/include/c++/14/bits/requires_hosted.h:
 
@@ -1101,6 +1104,10 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h:
 /usr/include/c++/14/bits/locale_facets.tcc:
 
 /usr/include/c++/14/variant:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/stdc-predef.h:
 
 /usr/include/c++/14/bits/stl_set.h:
 
@@ -1156,13 +1163,7 @@ _deps/googletest-src/googletest/include/gtest/gtest-typed-test.h:
 
 /usr/include/asm-generic/int-ll64.h:
 
-/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/types.h:
-
 _deps/googletest-src/googletest/include/gtest/internal/custom/gtest-port.h:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/stdc-predef.h:
 
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/elf_parser_tests.cpp:
 
@@ -1256,10 +1257,6 @@ _deps/googletest-src/googletest/include/gtest/gtest-printers.h:
 
 /usr/include/c++/14/bits/erase_if.h:
 
-/usr/include/c++/14/bits/unique_lock.h:
-
-/usr/include/c++/14/debug/assertions.h:
-
 /usr/include/c++/14/bits/uses_allocator.h:
 
 /usr/include/c++/14/bits/uses_allocator_args.h:
@@ -1285,12 +1282,6 @@ _deps/googletest-src/googletest/include/gtest/gtest-printers.h:
 /usr/include/c++/14/ostream:
 
 /usr/include/c++/14/compare:
-
-/usr/include/x86_64-linux-gnu/bits/stat.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
-
-/usr/include/c++/14/concepts:
 
 /usr/include/c++/14/cstddef:
 
@@ -1475,3 +1466,9 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-string.h:
 /usr/include/x86_64-linux-gnu/bits/signal_ext.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/bits/stat.h:
+
+/usr/include/c++/14/concepts:
+
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:

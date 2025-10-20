@@ -275,6 +275,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/dwarf_parser.o: src/dwarf_parser.cpp.o
+.PHONY : src/dwarf_parser.o
+
+# target to build an object file
+src/dwarf_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gwatch_lib.dir/build.make CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o
+.PHONY : src/dwarf_parser.cpp.o
+
+src/dwarf_parser.i: src/dwarf_parser.cpp.i
+.PHONY : src/dwarf_parser.i
+
+# target to preprocess a source file
+src/dwarf_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gwatch_lib.dir/build.make CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.i
+.PHONY : src/dwarf_parser.cpp.i
+
+src/dwarf_parser.s: src/dwarf_parser.cpp.s
+.PHONY : src/dwarf_parser.s
+
+# target to generate assembly for a file
+src/dwarf_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gwatch_lib.dir/build.make CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.s
+.PHONY : src/dwarf_parser.cpp.s
+
 src/elf_parser.o: src/elf_parser.cpp.o
 .PHONY : src/elf_parser.o
 
@@ -440,6 +464,9 @@ help:
 	@echo "... gwatch_lib"
 	@echo "... run_tests"
 	@echo "... test_int_incrementation"
+	@echo "... src/dwarf_parser.o"
+	@echo "... src/dwarf_parser.i"
+	@echo "... src/dwarf_parser.s"
 	@echo "... src/elf_parser.o"
 	@echo "... src/elf_parser.i"
 	@echo "... src/elf_parser.s"

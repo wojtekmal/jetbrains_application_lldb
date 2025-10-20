@@ -1,11 +1,12 @@
-#include <dwarf.h>
-#include <dwarf_parser.h>
-#include <vector>
+#include "dwarf.h"
+#include "dwarf_parser.h"
 #include <unordered_map>
 #include <utility>
 #include <cstring>
 #include <variant>
 #include <stdexcept>
+#include <set>
+#include <iostream>
 
 uint64_t read_uleb128(uint8_t*& data)
 {
@@ -109,11 +110,14 @@ CompilationUnitHeader read_compilation_unit_header(uint8_t*& data)
     answer.version = read_bytes(data, 2);
     answer.abbrev_offset = read_bytes(data, 8);
     answer.address_size = read_bytes(data, 1);
+    return answer;
 }
 
-std::unordered_map<uint64_t, AttributeData> get_attributes()
+std::unordered_map<uint64_t, AttributeData> get_attributes(uint8_t*& data, const GetAttributesContext& context)
 {
-    for (const Abbrev::Attribute& attr : abbrev_attributes)
+    std::unordered_map<uint64_t, AttributeData> attributes;
+
+    for (const Abbrev::Attribute& attr : context.abbrev_attributes)
     {
         // I didn't have the time to write a 42 case switch statement, so I vibe coded it.
         Value attr_value;
@@ -177,7 +181,7 @@ std::unordered_map<uint64_t, AttributeData> get_attributes()
             // --- 5. Address / Offset (store as uint64_t) ---
             case DW_FORM_addr:
             case DW_FORM_ref_addr: // In DWARF 3+, size is address_size
-                attr_value = read_bytes(data, address_size);
+                attr_value = read_bytes(data, context.address_size);
                 break;
                 
             case DW_FORM_strp:
@@ -185,7 +189,7 @@ std::unordered_map<uint64_t, AttributeData> get_attributes()
             case DW_FORM_line_strp:
             case DW_FORM_strp_sup:
                 // These are offsets, size is defined by the DWARF format
-                attr_value = read_bytes(data, offset_size);
+                attr_value = read_bytes(data, context.offset_size);
                 break;
 
             // --- 6. Blocks (Cannot be stored in your Value) ---
@@ -250,18 +254,13 @@ std::unordered_map<uint64_t, AttributeData> get_attributes()
 
         attributes[attr.name] = {attr.form, attr_value};
     }
+
+    return attributes;
 }
 
-std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
+std::string get_name(const GetNameContext& context)
 {
-    uint64_t offset_size = context.header.abbrev_offset;
-    uint64_t address_size = context.header.address_size;
-    uint64_t abbrev_code = read_uleb128(data);
-    Abbrev abbrev = context.abbrev_map.at(abbrev_code);
-    auto attributes = ;
-
-
-
+    auto attributes = context.attributes;
     std::string name;
     auto name_attribute = attributes.find(DW_AT_name);
 
@@ -284,20 +283,74 @@ std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
         }
     }
 
+    return name;
+}
+
+std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
+{
+    uint64_t offset_size = context.header.abbrev_offset;
+    uint64_t address_size = context.header.address_size;
+    uint64_t abbrev_code = read_uleb128(data);
+    Abbrev abbrev = context.abbrev_map.at(abbrev_code);
+    auto attributes = get_attributes(data, GetAttributesContext{abbrev.attributes, address_size, offset_size});
+
+    std::string name = get_name(GetNameContext{attributes, context.debug_str_opt});
+
     if (name == context.symbol && abbrev.tag == DW_TAG_variable)
     {
         uint8_t* type_die = context.start_of_compilation_unit + std::get<uint64_t>(attributes[DW_AT_type].value);
         uint64_t type_abbrev_code = read_uleb128(type_die);
         Abbrev type_abbrev = context.abbrev_map.at(type_abbrev_code);
 
+        auto type_attributes = get_attributes(type_die, GetAttributesContext{type_abbrev.attributes, address_size, offset_size});
+        std::string type_name = get_name(GetNameContext{type_attributes, context.debug_str_opt});
 
+        // These lists were made up by a chatbot.
+        std::set<std::string> signed_type_names = {
+            "int",
+            "signed int",
+            "long",
+            "long int",
+            "signed long",
+            "signed long int",
+            "long long",
+            "long long int",
+            "signed long long",
+            "signed long long int",
+            "__int64" // GCC extension
+        };
+
+        std::set<std::string> unsigned_type_names = {
+            "unsigned",
+            "unsigned int",
+            "long unsigned int",
+            "unsigned long",
+            "long long unsigned int",
+            "unsigned long long",
+            "unsigned __int64" // GCC extension
+        };
+
+        if (signed_type_names.count(type_name)) return true;
+        if (unsigned_type_names.count(type_name)) return false;
+        throw std::runtime_error("Type of variable is not supported.");
     }
+
+    if (abbrev.has_children == DW_CHILDREN_no) return std::nullopt;
+    
+    while (*data)
+    {
+        auto result_from_child = die_dfs(data, context);
+        if (result_from_child.has_value()) return result_from_child;
+    }
+
+    return std::nullopt;
 }
 
 std::optional<bool> get_sign_info(const std::string& symbol, uint8_t* data, const std::optional<Elf64_Shdr>& debug_info_header_opt, const std::optional<Elf64_Shdr>& debug_abbrev_header_opt, const std::optional<Elf64_Shdr>& debug_str_header_opt)
 {
     if (!debug_info_header_opt.has_value() || !debug_abbrev_header_opt.has_value())
     {
+        std::cerr << "Debug info is not present. Assuming that variable is unsigned. Compile with -g to get signed value of variable.\n";
         return std::nullopt;
     }
 
