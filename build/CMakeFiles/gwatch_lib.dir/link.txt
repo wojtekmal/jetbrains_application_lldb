@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libgwatch_lib.a CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o
+/usr/bin/ranlib lib/libgwatch_lib.a
