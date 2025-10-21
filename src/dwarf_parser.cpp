@@ -28,7 +28,7 @@ uint64_t read_uleb128(uint8_t*& data)
 
 int64_t read_sleb128(uint8_t*& data)
 {
-    uint64_t contents;
+    uint64_t contents = 0;
     int shift = 0;
 
     while (true)
@@ -101,14 +101,16 @@ CompilationUnitHeader read_compilation_unit_header(uint8_t*& data)
     if (length_32 == 0xffffffffU)
     {
         answer.length = read_bytes(data, 8);
+        answer.offset_size = 8;
     }
     else
     {
         answer.length = length_32;
+        answer.offset_size = 4;
     }
 
     answer.version = read_bytes(data, 2);
-    answer.abbrev_offset = read_bytes(data, 8);
+    answer.abbrev_offset = read_bytes(data, answer.offset_size);
     answer.address_size = read_bytes(data, 1);
     return answer;
 }
@@ -275,7 +277,7 @@ std::string get_name(const GetNameContext& context)
                 break;
 
             case DW_FORM_strp:
-                name = (*context.debug_str_opt)[std::get<uint64_t>(value)];
+                name = reinterpret_cast<char*>(*context.debug_str_opt) + std::get<uint64_t>(value);
                 break;
 
             default:
@@ -288,7 +290,7 @@ std::string get_name(const GetNameContext& context)
 
 std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
 {
-    uint64_t offset_size = context.header.abbrev_offset;
+    uint64_t offset_size = context.header.offset_size;
     uint64_t address_size = context.header.address_size;
     uint64_t abbrev_code = read_uleb128(data);
     Abbrev abbrev = context.abbrev_map.at(abbrev_code);
@@ -343,10 +345,11 @@ std::optional<bool> die_dfs(uint8_t*& data, const DieDfsContext& context)
         if (result_from_child.has_value()) return result_from_child;
     }
 
+    data++;
     return std::nullopt;
 }
 
-std::optional<bool> get_sign_info(const std::string& symbol, uint8_t* data, const std::optional<Elf64_Shdr>& debug_info_header_opt, const std::optional<Elf64_Shdr>& debug_abbrev_header_opt, const std::optional<Elf64_Shdr>& debug_str_header_opt)
+std::optional<bool> get_sign_info(const std::string& symbol, uint8_t* start_of_executable, const std::optional<Elf64_Shdr>& debug_info_header_opt, const std::optional<Elf64_Shdr>& debug_abbrev_header_opt, const std::optional<Elf64_Shdr>& debug_str_header_opt)
 {
     if (!debug_info_header_opt.has_value() || !debug_abbrev_header_opt.has_value())
     {
@@ -354,14 +357,15 @@ std::optional<bool> get_sign_info(const std::string& symbol, uint8_t* data, cons
         return std::nullopt;
     }
 
-    uint8_t* debug_info = data + debug_info_header_opt->sh_offset;
-    uint8_t* debug_abbrev = data + debug_abbrev_header_opt->sh_offset;
+    uint8_t* debug_info = start_of_executable + debug_info_header_opt->sh_offset;
+    uint8_t* debug_info_end = debug_info + debug_info_header_opt->sh_size;
+    uint8_t* debug_abbrev = start_of_executable + debug_abbrev_header_opt->sh_offset;
     std::optional<uint8_t*> debug_str_opt;
 
-    if (debug_str_header_opt.has_value()) debug_str_opt = data + debug_str_header_opt->sh_offset;
+    if (debug_str_header_opt.has_value()) debug_str_opt = start_of_executable + debug_str_header_opt->sh_offset;
     else debug_str_opt = std::nullopt;
 
-    while(true)
+    while(debug_info < debug_info_end)
     {
         uint8_t* start_of_compilation_unit = debug_info;
         CompilationUnitHeader header = read_compilation_unit_header(debug_info);
@@ -375,5 +379,8 @@ std::optional<bool> get_sign_info(const std::string& symbol, uint8_t* data, cons
         }
 
         auto is_signed = die_dfs(debug_info, DieDfsContext{symbol, abbrev_map, header, debug_str_opt, start_of_compilation_unit});
+        if (is_signed.has_value()) return is_signed;
     }
+
+    throw std::runtime_error("Couldn't find symbol in executable's debug information.");
 }

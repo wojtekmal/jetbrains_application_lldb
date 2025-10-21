@@ -432,6 +432,30 @@ test_programs/test_int_incrementation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_incrementation.dir/build.make CMakeFiles/test_int_incrementation.dir/test_programs/test_int_incrementation.cpp.s
 .PHONY : test_programs/test_int_incrementation.cpp.s
 
+tests/dwarf_parser_tests.o: tests/dwarf_parser_tests.cpp.o
+.PHONY : tests/dwarf_parser_tests.o
+
+# target to build an object file
+tests/dwarf_parser_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o
+.PHONY : tests/dwarf_parser_tests.cpp.o
+
+tests/dwarf_parser_tests.i: tests/dwarf_parser_tests.cpp.i
+.PHONY : tests/dwarf_parser_tests.i
+
+# target to preprocess a source file
+tests/dwarf_parser_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.i
+.PHONY : tests/dwarf_parser_tests.cpp.i
+
+tests/dwarf_parser_tests.s: tests/dwarf_parser_tests.cpp.s
+.PHONY : tests/dwarf_parser_tests.s
+
+# target to generate assembly for a file
+tests/dwarf_parser_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.s
+.PHONY : tests/dwarf_parser_tests.cpp.s
+
 tests/elf_parser_tests.o: tests/elf_parser_tests.cpp.o
 .PHONY : tests/elf_parser_tests.o
 
@@ -520,6 +544,9 @@ help:
 	@echo "... test_programs/test_int_incrementation.o"
 	@echo "... test_programs/test_int_incrementation.i"
 	@echo "... test_programs/test_int_incrementation.s"
+	@echo "... tests/dwarf_parser_tests.o"
+	@echo "... tests/dwarf_parser_tests.i"
+	@echo "... tests/dwarf_parser_tests.s"
 	@echo "... tests/elf_parser_tests.o"
 	@echo "... tests/elf_parser_tests.i"
 	@echo "... tests/elf_parser_tests.s"

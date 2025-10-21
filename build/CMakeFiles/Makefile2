@@ -232,12 +232,12 @@ CMakeFiles/run_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest
 CMakeFiles/run_tests.dir/all: _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=15,16,17 "Built target run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=15,16,17,18 "Built target run_tests"
 .PHONY : CMakeFiles/run_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/run_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles 0
 .PHONY : CMakeFiles/run_tests.dir/rule
@@ -249,7 +249,7 @@ run_tests: CMakeFiles/run_tests.dir/rule
 # codegen rule for target.
 CMakeFiles/run_tests.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=15,16,17 "Finished codegen for target run_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=15,16,17,18 "Finished codegen for target run_tests"
 .PHONY : CMakeFiles/run_tests.dir/codegen
 
 # clean rule for target.
@@ -264,7 +264,7 @@ CMakeFiles/run_tests.dir/clean:
 CMakeFiles/test_int_incrementation.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_incrementation.dir/build.make CMakeFiles/test_int_incrementation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_incrementation.dir/build.make CMakeFiles/test_int_incrementation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=20,21 "Built target test_int_incrementation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=21,22 "Built target test_int_incrementation"
 .PHONY : CMakeFiles/test_int_incrementation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -281,7 +281,7 @@ test_int_incrementation: CMakeFiles/test_int_incrementation.dir/rule
 # codegen rule for target.
 CMakeFiles/test_int_incrementation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_incrementation.dir/build.make CMakeFiles/test_int_incrementation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=20,21 "Finished codegen for target test_int_incrementation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=21,22 "Finished codegen for target test_int_incrementation"
 .PHONY : CMakeFiles/test_int_incrementation.dir/codegen
 
 # clean rule for target.
@@ -296,7 +296,7 @@ CMakeFiles/test_int_incrementation.dir/clean:
 CMakeFiles/test_int_decrementation.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_decrementation.dir/build.make CMakeFiles/test_int_decrementation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_decrementation.dir/build.make CMakeFiles/test_int_decrementation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=18,19 "Built target test_int_decrementation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=19,20 "Built target test_int_decrementation"
 .PHONY : CMakeFiles/test_int_decrementation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -313,7 +313,7 @@ test_int_decrementation: CMakeFiles/test_int_decrementation.dir/rule
 # codegen rule for target.
 CMakeFiles/test_int_decrementation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_decrementation.dir/build.make CMakeFiles/test_int_decrementation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=18,19 "Finished codegen for target test_int_decrementation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles --progress-num=19,20 "Finished codegen for target test_int_decrementation"
 .PHONY : CMakeFiles/test_int_decrementation.dir/codegen
 
 # clean rule for target.

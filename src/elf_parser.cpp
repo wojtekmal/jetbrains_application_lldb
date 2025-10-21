@@ -108,5 +108,5 @@ std::optional<SymbolInfo> get_symbol_info(const std::string& symbol, const fs::p
 
     if (!aslr_offset_opt || !elf_data_opt) return std::nullopt;
     
-    return SymbolInfo{elf_data_opt->address + *aslr_offset_opt, elf_data_opt->size};
+    return SymbolInfo{elf_data_opt->address + *aslr_offset_opt, elf_data_opt->size, elf_data_opt->is_signed};
 }

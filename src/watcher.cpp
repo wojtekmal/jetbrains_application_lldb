@@ -31,13 +31,13 @@ std::string format(uint64_t value, const SymbolInfo& symbol_info)
 {
     if (!symbol_info.is_signed.has_value() || *symbol_info.is_signed)
     {
-        if (symbol_info.size == 4) return std::to_string(static_cast<uint32_t>(value));
-        if (symbol_info.size == 8) return std::to_string(static_cast<uint64_t>(value));
+        if (symbol_info.size == 4) return std::to_string(static_cast<int32_t>(value));
+        if (symbol_info.size == 8) return std::to_string(static_cast<int64_t>(value));
     }
     else
     {
-        if (symbol_info.size == 4) return std::to_string(static_cast<int32_t>(value));
-        if (symbol_info.size == 8) return std::to_string(static_cast<int64_t>(value));
+        if (symbol_info.size == 4) return std::to_string(static_cast<uint32_t>(value));
+        if (symbol_info.size == 8) return std::to_string(static_cast<uint64_t>(value));
     }
 
     std::cerr << "Symbol size: " << symbol_info.size << "\n";
