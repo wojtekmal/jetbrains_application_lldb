@@ -23,6 +23,7 @@ CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o: /home/wojtekmal/informa
   _deps/googletest-src/googletest/include/gtest/internal/gtest-port.h \
   _deps/googletest-src/googletest/include/gtest/internal/gtest-string.h \
   _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h \
+  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/dwarf.h \
   /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/dwarf_parser.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -67,6 +68,7 @@ CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o: /home/wojtekmal/informa
   /usr/include/c++/14/bits/fs_fwd.h \
   /usr/include/c++/14/bits/fs_ops.h \
   /usr/include/c++/14/bits/fs_path.h \
+  /usr/include/c++/14/bits/fstream.tcc \
   /usr/include/c++/14/bits/functexcept.h \
   /usr/include/c++/14/bits/functional_hash.h \
   /usr/include/c++/14/bits/hash_bytes.h \
@@ -167,6 +169,7 @@ CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o: /home/wojtekmal/informa
   /usr/include/c++/14/ext/string_conversions.h \
   /usr/include/c++/14/ext/type_traits.h \
   /usr/include/c++/14/filesystem \
+  /usr/include/c++/14/fstream \
   /usr/include/c++/14/functional \
   /usr/include/c++/14/initializer_list \
   /usr/include/c++/14/iomanip \
@@ -327,8 +330,10 @@ CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o: /home/wojtekmal/informa
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/14/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/14/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/14/bits/ctype_base.h \
@@ -1164,6 +1169,8 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/gthr.h:
 
+/usr/include/x86_64-linux-gnu/c++/14/bits/basic_file.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
@@ -1250,7 +1257,7 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
-/usr/include/c++/14/bits/stream_iterator.h:
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
@@ -1259,6 +1266,8 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o:
 /usr/include/features-time64.h:
 
 /usr/include/c++/14/bits/stl_map.h:
+
+/usr/include/c++/14/bits/fstream.tcc:
 
 /usr/include/c++/14/bits/stl_iterator_base_types.h:
 
@@ -1320,10 +1329,6 @@ _deps/googletest-src/googletest/include/gtest/gtest-message.h:
 
 /usr/include/c++/14/bits/stl_multiset.h:
 
-/usr/lib/linux/uapi/x86/asm/posix_types_64.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
 /usr/include/c++/14/bits/locale_conv.h:
 
 /lib/x86_64-linux-gnu/libm.so.6:
@@ -1384,6 +1389,8 @@ _deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h:
 
 /usr/include/c++/14/cctype:
 
+/usr/include/c++/14/bits/erase_if.h:
+
 /usr/include/c++/14/bits/stl_tree.h:
 
 _deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h:
@@ -1397,6 +1404,16 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-param-util.h:
 /usr/include/c++/14/bits/fs_path.h:
 
 /usr/include/pthread.h:
+
+/usr/lib/linux/uapi/x86/asm/posix_types_64.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/dwarf.h:
+
+/usr/include/c++/14/bits/hashtable_policy.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/features.h:
 
@@ -1430,7 +1447,13 @@ _deps/googletest-src/googletest/include/gtest/internal/custom/gtest-printers.h:
 
 _deps/googletest-src/googletest/include/gtest/gtest_prod.h:
 
+/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
+
+/usr/include/c++/14/cassert:
+
 /usr/include/c++/14/bits/stl_raw_storage_iter.h:
+
+/usr/include/x86_64-linux-gnu/c++/14/bits/c++io.h:
 
 _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h:
 
@@ -1454,6 +1477,10 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-type-util.h:
 
 /usr/include/c++/14/bits/uniform_int_dist.h:
 
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+/usr/include/c++/14/vector:
+
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 _deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h:
@@ -1463,10 +1490,6 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-internal.h:
 /usr/include/c++/14/bits/locale_facets.tcc:
 
 /usr/include/c++/14/variant:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/stdc-predef.h:
 
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/dwarf_parser.h:
 
@@ -1500,14 +1523,6 @@ _deps/googletest-src/googletest/include/gtest/gtest-typed-test.h:
 
 /usr/include/c++/14/pstl/glue_memory_defs.h:
 
-_deps/googletest-src/googletest/include/gtest/gtest.h:
-
-/usr/include/c++/14/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/14/bits/std_abs.h:
-
-/usr/include/linux/sched/types.h:
-
 /usr/lib/x86_64-linux-gnu/libm.so:
 
 /usr/include/c++/14/ios:
@@ -1515,6 +1530,18 @@ _deps/googletest-src/googletest/include/gtest/gtest.h:
 /usr/include/asm-generic/int-ll64.h:
 
 _deps/googletest-src/googletest/include/gtest/internal/custom/gtest-port.h:
+
+/usr/include/asm-generic/posix_types.h:
+
+/usr/include/stdc-predef.h:
+
+_deps/googletest-src/googletest/include/gtest/gtest.h:
+
+/usr/include/c++/14/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/14/bits/std_abs.h:
+
+/usr/include/linux/sched/types.h:
 
 /usr/include/c++/14/bits/basic_ios.tcc:
 
@@ -1628,7 +1655,7 @@ _deps/googletest-src/googletest/include/gtest/gtest-printers.h:
 
 /usr/include/c++/14/bits/enable_special_members.h:
 
-/usr/include/c++/14/bits/erase_if.h:
+/usr/include/c++/14/bits/stream_iterator.h:
 
 /usr/include/c++/14/bits/streambuf_iterator.h:
 
@@ -1726,6 +1753,8 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal
 
 /usr/include/c++/14/ext/type_traits.h:
 
+/usr/include/c++/14/fstream:
+
 /usr/include/c++/14/bits/functional_hash.h:
 
 /usr/include/c++/14/limits:
@@ -1820,14 +1849,6 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
-/usr/include/c++/14/bits/hashtable_policy.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
-
-/usr/include/c++/14/cassert:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-arch.h:
-
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
@@ -1845,9 +1866,3 @@ _deps/googletest-src/googletest/include/gtest/internal/gtest-death-test-internal
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/sigaction.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
-
-/usr/include/c++/14/vector:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:

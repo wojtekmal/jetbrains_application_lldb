@@ -59,15 +59,8 @@ uint64_t read_bytes(uint8_t*& data, uint64_t byte_count)
 
 std::string read_string(uint8_t*& data)
 {
-    std::string answer;
-
-    while (*data)
-    {
-        answer.push_back(static_cast<char>(*data));
-        data++;
-    }
-
-    data++;
+    std::string answer(reinterpret_cast<char*>(data));
+    data += answer.size() + 1;
     return answer;
 }
 

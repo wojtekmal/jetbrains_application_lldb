@@ -1,10 +1,93 @@
-Start testing: Oct 21 11:34 CEST
+Start testing: Oct 21 17:39 CEST
 ----------------------------------------------------------
-4/5 Testing: DwarfParserTest.ReadsULEB128Correctly
-4/5 Test: DwarfParserTest.ReadsULEB128Correctly
+1/8 Testing: ElfParserTest.HandlesNonexistantExecutable
+1/8 Test: ElfParserTest.HandlesNonexistantExecutable
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=ElfParserTest.HandlesNonexistantExecutable"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"ElfParserTest.HandlesNonexistantExecutable" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ElfParserTest.HandlesNonexistantExecutable
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ElfParserTest
+[ RUN      ] ElfParserTest.HandlesNonexistantExecutable
+[       OK ] ElfParserTest.HandlesNonexistantExecutable (0 ms)
+[----------] 1 test from ElfParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ElfParserTest.HandlesNonexistantExecutable" end time: Oct 21 17:39 CEST
+"ElfParserTest.HandlesNonexistantExecutable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/8 Testing: ElfParserTest.CorrectlyFindsSymbolAddress
+2/8 Test: ElfParserTest.CorrectlyFindsSymbolAddress
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=ElfParserTest.CorrectlyFindsSymbolAddress"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"ElfParserTest.CorrectlyFindsSymbolAddress" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = ElfParserTest.CorrectlyFindsSymbolAddress
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from ElfParserTest
+[ RUN      ] ElfParserTest.CorrectlyFindsSymbolAddress
+Debug info is not present. Assuming that variable is unsigned. Compile with -g to get signed value of variable.
+[       OK ] ElfParserTest.CorrectlyFindsSymbolAddress (2 ms)
+[----------] 1 test from ElfParserTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"ElfParserTest.CorrectlyFindsSymbolAddress" end time: Oct 21 17:39 CEST
+"ElfParserTest.CorrectlyFindsSymbolAddress" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/8 Testing: TracerIntegrationTest.TracesIntegerWritesCorrectly
+3/8 Test: TracerIntegrationTest.TracesIntegerWritesCorrectly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=TracerIntegrationTest.TracesIntegerWritesCorrectly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = TracerIntegrationTest.TracesIntegerWritesCorrectly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from TracerIntegrationTest
+[ RUN      ] TracerIntegrationTest.TracesIntegerWritesCorrectly
+Debug info is not present. Assuming that variable is unsigned. Compile with -g to get signed value of variable.
+[       OK ] TracerIntegrationTest.TracesIntegerWritesCorrectly (33 ms)
+[----------] 1 test from TracerIntegrationTest (33 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (33 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" end time: Oct 21 17:39 CEST
+"TracerIntegrationTest.TracesIntegerWritesCorrectly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/8 Testing: DwarfParserTest.ReadsULEB128Correctly
+4/8 Test: DwarfParserTest.ReadsULEB128Correctly
 Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=DwarfParserTest.ReadsULEB128Correctly"
 Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
-"DwarfParserTest.ReadsULEB128Correctly" start time: Oct 21 11:34 CEST
+"DwarfParserTest.ReadsULEB128Correctly" start time: Oct 21 17:39 CEST
 Output:
 ----------------------------------------------------------
 Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
@@ -23,8 +106,116 @@ Note: Google Test filter = DwarfParserTest.ReadsULEB128Correctly
 Test time =   0.00 sec
 ----------------------------------------------------------
 Test Passed.
-"DwarfParserTest.ReadsULEB128Correctly" end time: Oct 21 11:34 CEST
+"DwarfParserTest.ReadsULEB128Correctly" end time: Oct 21 17:39 CEST
 "DwarfParserTest.ReadsULEB128Correctly" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 21 11:34 CEST
+5/8 Testing: DwarfParserTest.ReadsSLEB128Correctly
+5/8 Test: DwarfParserTest.ReadsSLEB128Correctly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=DwarfParserTest.ReadsSLEB128Correctly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"DwarfParserTest.ReadsSLEB128Correctly" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DwarfParserTest.ReadsSLEB128Correctly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DwarfParserTest
+[ RUN      ] DwarfParserTest.ReadsSLEB128Correctly
+[       OK ] DwarfParserTest.ReadsSLEB128Correctly (0 ms)
+[----------] 1 test from DwarfParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DwarfParserTest.ReadsSLEB128Correctly" end time: Oct 21 17:39 CEST
+"DwarfParserTest.ReadsSLEB128Correctly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/8 Testing: DwarfParserTest.ReadsBytesCorrectly
+6/8 Test: DwarfParserTest.ReadsBytesCorrectly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=DwarfParserTest.ReadsBytesCorrectly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"DwarfParserTest.ReadsBytesCorrectly" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DwarfParserTest.ReadsBytesCorrectly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DwarfParserTest
+[ RUN      ] DwarfParserTest.ReadsBytesCorrectly
+[       OK ] DwarfParserTest.ReadsBytesCorrectly (0 ms)
+[----------] 1 test from DwarfParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DwarfParserTest.ReadsBytesCorrectly" end time: Oct 21 17:39 CEST
+"DwarfParserTest.ReadsBytesCorrectly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/8 Testing: DwarfParserTest.ReadsStringCorrectly
+7/8 Test: DwarfParserTest.ReadsStringCorrectly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=DwarfParserTest.ReadsStringCorrectly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"DwarfParserTest.ReadsStringCorrectly" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DwarfParserTest.ReadsStringCorrectly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DwarfParserTest
+[ RUN      ] DwarfParserTest.ReadsStringCorrectly
+[       OK ] DwarfParserTest.ReadsStringCorrectly (0 ms)
+[----------] 1 test from DwarfParserTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"DwarfParserTest.ReadsStringCorrectly" end time: Oct 21 17:39 CEST
+"DwarfParserTest.ReadsStringCorrectly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: DwarfParserTest.ReadsAbbrevCorrectly
+8/8 Test: DwarfParserTest.ReadsAbbrevCorrectly
+Command: "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/bin/run_tests" "--gtest_filter=DwarfParserTest.ReadsAbbrevCorrectly"
+Directory: /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build
+"DwarfParserTest.ReadsAbbrevCorrectly" start time: Oct 21 17:39 CEST
+Output:
+----------------------------------------------------------
+Running main() from /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/src/gtest_main.cc
+Note: Google Test filter = DwarfParserTest.ReadsAbbrevCorrectly
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from DwarfParserTest
+[ RUN      ] DwarfParserTest.ReadsAbbrevCorrectly
+[       OK ] DwarfParserTest.ReadsAbbrevCorrectly (2 ms)
+[----------] 1 test from DwarfParserTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (2 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"DwarfParserTest.ReadsAbbrevCorrectly" end time: Oct 21 17:39 CEST
+"DwarfParserTest.ReadsAbbrevCorrectly" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 21 17:39 CEST

@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "elf_parser.h"
-#include <filesystem>
 
 const std::filesystem::path test_bin_dir = TEST_BIN_DIR;
 

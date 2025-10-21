@@ -43,8 +43,9 @@ add_executable(
     tests/dwarf_parser_tests.cpp
 )
 
+# For stability reasons, copies of the test executables are kept and never overwritten.
 target_compile_definitions(run_tests PRIVATE
-  "TEST_BIN_DIR=\"${CMAKE_RUNTIME_OUTPUT_DIRECTORY}\""
+  "TEST_BIN_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/test_programs\""
 )
 
 target_include_directories(run_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)

@@ -136,9 +136,9 @@ CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o: \
  /usr/include/c++/14/bits/stl_uninitialized.h \
  /usr/include/c++/14/bits/stl_vector.h \
  /usr/include/c++/14/bits/stl_bvector.h \
- /usr/include/c++/14/bits/vector.tcc /usr/include/c++/14/utility \
- /usr/include/c++/14/bits/stl_relops.h /usr/include/c++/14/cstring \
- /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/14/bits/vector.tcc /usr/include/c++/14/compare \
+ /usr/include/c++/14/utility /usr/include/c++/14/bits/stl_relops.h \
+ /usr/include/c++/14/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/c++/14/stdexcept /usr/include/c++/14/set \
  /usr/include/c++/14/bits/stl_tree.h /usr/include/c++/14/bits/stl_set.h \
  /usr/include/c++/14/bits/stl_multiset.h /usr/include/c++/14/iostream \
