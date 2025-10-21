@@ -58,4 +58,5 @@ target_link_libraries(
 gtest_add_tests(TARGET run_tests)
 
 add_executable(test_int_incrementation test_programs/test_int_incrementation.cpp)
+add_executable(test_int_decrementation test_programs/test_int_decrementation.cpp)
 #target_compile_options(test_int_incrementation PRIVATE -O3)

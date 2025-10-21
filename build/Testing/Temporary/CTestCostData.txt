@@ -1,4 +1,0 @@
-ElfParserTest.HandlesNonexistantExecutable 3 0.000738087
-ElfParserTest.CorrectlyFindsSymbolAddress 3 0.00138645
-TracerIntegrationTest.TracesIntegerWritesCorrectly 3 0.00886308
----

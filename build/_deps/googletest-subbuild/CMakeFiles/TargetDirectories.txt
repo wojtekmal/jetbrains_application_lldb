@@ -1,3 +1,0 @@
-/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
