@@ -86,6 +86,7 @@ CMakeFiles/gwatch_lib.dir/src/dwarf_parser.cpp.o: /home/wojtekmal/informatyka/in
   /usr/include/c++/14/cctype \
   /usr/include/c++/14/cerrno \
   /usr/include/c++/14/clocale \
+  /usr/include/c++/14/compare \
   /usr/include/c++/14/concepts \
   /usr/include/c++/14/cstddef \
   /usr/include/c++/14/cstdio \
@@ -332,6 +333,7 @@ CMakeFiles/gwatch_lib.dir/src/elf_parser.cpp.o: /home/wojtekmal/informatyka/inte
   /usr/include/c++/14/cerrno \
   /usr/include/c++/14/clocale \
   /usr/include/c++/14/codecvt \
+  /usr/include/c++/14/compare \
   /usr/include/c++/14/concepts \
   /usr/include/c++/14/cstddef \
   /usr/include/c++/14/cstdint \
@@ -904,6 +906,8 @@ CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o: /home/wojtekmal/informatyka/interns
 
 /usr/include/c++/14/cstddef:
 
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
 /usr/include/elf.h:
 
 /usr/include/c++/14/debug/debug.h:
@@ -977,6 +981,12 @@ CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o: /home/wojtekmal/informatyka/interns
 /usr/include/c++/14/string_view:
 
 /usr/include/c++/14/ext/atomicity.h:
+
+/usr/include/c++/14/limits:
+
+/usr/include/c++/14/iomanip:
+
+/usr/include/c++/14/bits/functional_hash.h:
 
 /usr/include/c++/14/bits/cxxabi_forced.h:
 
@@ -1132,6 +1142,8 @@ CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o: /home/wojtekmal/informatyka/interns
 
 /usr/include/c++/14/ostream:
 
+/usr/include/c++/14/compare:
+
 /usr/include/c++/14/bits/parse_numbers.h:
 
 /usr/include/c++/14/bits/range_access.h:
@@ -1260,8 +1272,6 @@ CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o: /home/wojtekmal/informatyka/interns
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/error_constants.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
@@ -1383,9 +1393,3 @@ CMakeFiles/gwatch_lib.dir/src/watcher.cpp.o: /home/wojtekmal/informatyka/interns
 /usr/include/c++/14/ext/concurrence.h:
 
 /usr/include/c++/14/fstream:
-
-/usr/include/c++/14/limits:
-
-/usr/include/c++/14/bits/functional_hash.h:
-
-/usr/include/c++/14/iomanip:

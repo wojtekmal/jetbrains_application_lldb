@@ -126,12 +126,16 @@ TEST(DwarfParserTest, ReadsAbbrevCorrectly)
     auto debug_abbrev = data + debug_abbrev_offset;
     auto start_of_debug_abbrev = debug_abbrev;
     
-    auto first_abbrev = read_abbrev(debug_abbrev);
-    auto second_abbrev = read_abbrev(debug_abbrev);
-    auto third_abbrev = read_abbrev(debug_abbrev);
+    std::array<std::pair<uint64_t, Abbrev>, 3> abbrevs;
+    std::array<uint64_t, 3> expected_offsets = {{19, 38, 49}};
 
-    std::pair<uint64_t, Abbrev> expected_abbrevs[] = {
-        // Abbreviation Entry 1
+    for (int i = 0; i < 3; i++)
+    {
+        abbrevs[i] = read_abbrev(debug_abbrev);
+        EXPECT_EQ(start_of_debug_abbrev + expected_offsets[i], debug_abbrev);
+    }
+
+    std::array<std::pair<uint64_t, Abbrev>, 3> expected_abbrevs = {{
         { 1, 
         {
             .tag = DW_TAG_compile_unit,
@@ -148,7 +152,6 @@ TEST(DwarfParserTest, ReadsAbbrevCorrectly)
         }
         },
 
-        // Abbreviation Entry 2
         { 2,
         {
             .tag = DW_TAG_variable,
@@ -165,7 +168,6 @@ TEST(DwarfParserTest, ReadsAbbrevCorrectly)
         }
         },
 
-        // Abbreviation Entry 3
         { 3,
         {
             .tag = DW_TAG_base_type,
@@ -177,9 +179,43 @@ TEST(DwarfParserTest, ReadsAbbrevCorrectly)
             }
         }
         }
+    }};
+
+    EXPECT_EQ(abbrevs, expected_abbrevs);
+}
+
+inline bool operator==(const CompilationUnitHeader& lhs, const CompilationUnitHeader& rhs)
+{
+    return lhs.abbrev_offset == rhs.abbrev_offset &&
+        lhs.address_size == rhs.address_size &&
+        lhs.length == rhs.length &&
+        lhs.offset_size == rhs.offset_size &&
+        lhs.version == rhs.version && 
+        lhs.unit_type == rhs.unit_type;
+}
+
+TEST(DwarfParserTest, ReadsCompilationUnitCorrectly)
+{
+    auto executable_path = test_bin_dir / "test_int_decrementation";
+    std::ifstream executable_file(executable_path, std::ios::binary);
+    std::vector<char> buffer(std::istreambuf_iterator<char>(executable_file), {});
+    auto data = reinterpret_cast<uint8_t*>(buffer.data());
+
+    // According to the readelf bash command.
+    uint64_t debug_info_offset = 0x305f;
+    auto debug_info = data + debug_info_offset;
+    auto start_of_debug_info = debug_info;
+    CompilationUnitHeader header = read_compilation_unit_header(debug_info);
+    
+    CompilationUnitHeader expected_header = {
+        .length = 0x86,
+        .version = 5,
+        .unit_type = DW_UT_compile,
+        .abbrev_offset = 0,
+        .offset_size = 4,
+        .address_size = 8
     };
 
-    EXPECT_EQ(first_abbrev, expected_abbrevs[0]);
-    EXPECT_EQ(second_abbrev, expected_abbrevs[1]);
-    EXPECT_EQ(third_abbrev, expected_abbrevs[2]);
+    EXPECT_EQ(header, expected_header);
+    EXPECT_EQ(start_of_debug_info + 12, debug_info);
 }

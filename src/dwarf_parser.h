@@ -24,10 +24,10 @@ struct CompilationUnitHeader
 {
     uint64_t length;
     uint64_t version;
+    uint64_t unit_type;
     uint64_t abbrev_offset;
     uint64_t offset_size;
     uint64_t address_size;
-    std::unordered_map<uint64_t, Abbrev> abbrevs;
 };
 
 using Value = std::variant<

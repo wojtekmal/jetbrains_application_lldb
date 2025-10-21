@@ -103,8 +103,9 @@ CompilationUnitHeader read_compilation_unit_header(uint8_t*& data)
     }
 
     answer.version = read_bytes(data, 2);
-    answer.abbrev_offset = read_bytes(data, answer.offset_size);
+    answer.unit_type = read_bytes(data, 1);
     answer.address_size = read_bytes(data, 1);
+    answer.abbrev_offset = read_bytes(data, answer.offset_size);
     return answer;
 }
 
