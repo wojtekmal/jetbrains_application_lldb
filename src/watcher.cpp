@@ -48,7 +48,6 @@ void watch(const std::vector<std::string>& args)
 {
     std::string symbol;
     std::string path;
-    bool quiet = false;
 
     for (int i = 0; i < args.size(); i++)
     {
@@ -59,10 +58,6 @@ void watch(const std::vector<std::string>& args)
         if (args[i] == "--exec" && i + 1 < args.size())
         {
             path = args[i + 1];
-        }
-        if (args[i] == "-q")
-        {
-            quiet = true;
         }
     }
 
@@ -110,12 +105,12 @@ void watch(const std::vector<std::string>& args)
             {
                 if (stopped_because_of_read(pid))
                 {
-                    if (!quiet) std::cout << symbol << "    read     " << format(current_value, symbol_info) << "\n";
+                    std::cout << symbol << "    read     " << format(current_value, symbol_info) << "\n";
                 }
                 else
                 {
                     uint64_t new_value = get_current_value(symbol_info, pid);
-                    if (!quiet) std::cout << symbol << "    write    " << format(current_value, symbol_info) << " -> " << format(new_value, symbol_info) << "\n";
+                    std::cout << symbol << "    write    " << format(current_value, symbol_info) << " -> " << format(new_value, symbol_info) << "\n";
                     current_value = new_value;
                 }
             }

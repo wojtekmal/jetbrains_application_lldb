@@ -44,7 +44,8 @@ add_executable(
     tests/dwarf_parser_tests.cpp
 )
 
-# For stability reasons, copies of the test executables are kept and never overwritten.
+# Copies of the test executables are kept and protected from new
+# builds in order to make tests stable.
 target_compile_definitions(run_tests PRIVATE
   "TEST_BIN_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/test_programs\""
 )

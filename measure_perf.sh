@@ -6,12 +6,10 @@ symbol="sum"
 
 echo "Running native benchmark..."
 native_time=$((time -p "$test_executable") 2>&1 | awk '/^real/ {print $2}' )
-#time -p "$test_executable"
 echo "Native time: ${native_time}s."
 
 echo "Running watched benchmark..."
-watched_time=$((time -p "$gwatch" --var "$symbol" --exec "$test_executable" -q) 2>&1 | awk '/^real/ {print $2}' )
-#time -p "$gwatch" --var "$symbol" --exec "$test_executable" -q
+watched_time=$((time -p "$gwatch" --var "$symbol" --exec "$test_executable") 2>&1 | awk '/^real/ {print $2}' )
 echo "Watched time: ${watched_time}s."
 
 echo "----------------------"
