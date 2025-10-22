@@ -10,7 +10,7 @@ cmake --build build
 ```
 Requirements: Cmake, G++, Linux.  
   
-Tests may be run with ```cd build && ctest```.  
+Tests may be run with ```cd build && ctest```. A performance may be run by running the ```measure_perf.sh``` script.  
   
 For now, only unsigned 4-8 byte integer global variables are supported.  
   

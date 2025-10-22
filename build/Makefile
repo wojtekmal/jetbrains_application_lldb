@@ -237,6 +237,19 @@ test_int_decrementation/fast:
 .PHONY : test_int_decrementation/fast
 
 #=============================================================================
+# Target rules for targets named test_perf
+
+# Build rule for target.
+test_perf: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_perf
+.PHONY : test_perf
+
+# fast build rule for target.
+test_perf/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_perf.dir/build.make CMakeFiles/test_perf.dir/build
+.PHONY : test_perf/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -432,6 +445,30 @@ test_programs/test_int_incrementation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_int_incrementation.dir/build.make CMakeFiles/test_int_incrementation.dir/test_programs/test_int_incrementation.cpp.s
 .PHONY : test_programs/test_int_incrementation.cpp.s
 
+test_programs/test_perf.o: test_programs/test_perf.cpp.o
+.PHONY : test_programs/test_perf.o
+
+# target to build an object file
+test_programs/test_perf.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_perf.dir/build.make CMakeFiles/test_perf.dir/test_programs/test_perf.cpp.o
+.PHONY : test_programs/test_perf.cpp.o
+
+test_programs/test_perf.i: test_programs/test_perf.cpp.i
+.PHONY : test_programs/test_perf.i
+
+# target to preprocess a source file
+test_programs/test_perf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_perf.dir/build.make CMakeFiles/test_perf.dir/test_programs/test_perf.cpp.i
+.PHONY : test_programs/test_perf.cpp.i
+
+test_programs/test_perf.s: test_programs/test_perf.cpp.s
+.PHONY : test_programs/test_perf.s
+
+# target to generate assembly for a file
+test_programs/test_perf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_perf.dir/build.make CMakeFiles/test_perf.dir/test_programs/test_perf.cpp.s
+.PHONY : test_programs/test_perf.cpp.s
+
 tests/dwarf_parser_tests.o: tests/dwarf_parser_tests.cpp.o
 .PHONY : tests/dwarf_parser_tests.o
 
@@ -526,6 +563,7 @@ help:
 	@echo "... run_tests"
 	@echo "... test_int_decrementation"
 	@echo "... test_int_incrementation"
+	@echo "... test_perf"
 	@echo "... src/dwarf_parser.o"
 	@echo "... src/dwarf_parser.i"
 	@echo "... src/dwarf_parser.s"
@@ -544,6 +582,9 @@ help:
 	@echo "... test_programs/test_int_incrementation.o"
 	@echo "... test_programs/test_int_incrementation.i"
 	@echo "... test_programs/test_int_incrementation.s"
+	@echo "... test_programs/test_perf.o"
+	@echo "... test_programs/test_perf.i"
+	@echo "... test_programs/test_perf.s"
 	@echo "... tests/dwarf_parser_tests.o"
 	@echo "... tests/dwarf_parser_tests.i"
 	@echo "... tests/dwarf_parser_tests.s"

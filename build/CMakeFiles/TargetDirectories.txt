@@ -3,6 +3,7 @@
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/run_tests.dir
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/test_int_incrementation.dir
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/test_int_decrementation.dir
+/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/test_perf.dir
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/test.dir
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/edit_cache.dir
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/CMakeFiles/rebuild_cache.dir

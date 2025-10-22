@@ -20,6 +20,7 @@ add_executable(
     gwatch
     src/gwatch.cpp
 )
+target_compile_options(gwatch PRIVATE -O3)
 
 target_link_libraries(
     gwatch
@@ -61,5 +62,6 @@ gtest_add_tests(TARGET run_tests)
 
 add_executable(test_int_incrementation test_programs/test_int_incrementation.cpp)
 add_executable(test_int_decrementation test_programs/test_int_decrementation.cpp)
+add_executable(test_perf test_programs/test_perf.cpp)
 target_compile_options(test_int_decrementation PRIVATE -g)
 #target_compile_options(test_int_incrementation PRIVATE -O3)

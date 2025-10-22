@@ -176,7 +176,9 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o: /home/wojtekmal/informatyka/internships/
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
@@ -272,6 +274,8 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libgcc.a:
 
 /usr/include/c++/14/stdexcept:
 
@@ -381,8 +385,6 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 
 /usr/include/c++/14/bits/cxxabi_forced.h:
 
-/usr/include/c++/14/bits/cpp_type_traits.h:
-
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/c++/14/ext/concurrence.h:
@@ -396,8 +398,6 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 /usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/os_defines.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/libgcc.a:
 
 /usr/include/c++/14/bits/memory_resource.h:
 
@@ -440,6 +440,12 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/src/gwatch.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/14/bits/c++locale.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
+
+/usr/include/c++/14/bits/chrono.h:
+
+/usr/include/c++/14/bit:
 
 /usr/include/c++/14/cstdint:
 
@@ -649,6 +655,10 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
+/usr/include/c++/14/bits/cpp_type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/crtendS.o:
@@ -684,6 +694,8 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
@@ -780,9 +792,3 @@ CMakeFiles/gwatch.dir/src/gwatch.cpp.o:
 /usr/include/asm-generic/int-ll64.h:
 
 /usr/lib/x86_64-linux-gnu/libm.so:
-
-/usr/include/c++/14/bits/chrono.h:
-
-/usr/include/c++/14/bit:
-
-/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
