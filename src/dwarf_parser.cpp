@@ -274,7 +274,11 @@ std::string get_name(const GetNameContext& context)
                 name = reinterpret_cast<char*>(*context.debug_str_opt) + std::get<uint64_t>(value);
                 break;
 
-            default:
+            case DW_FORM_strx:
+            case DW_FORM_strx1:
+            case DW_FORM_strx2:
+            case DW_FORM_strx3:
+            case DW_FORM_strx4:
                 throw std::runtime_error(".debug_str_offsets is not supported.");
         }
     }
