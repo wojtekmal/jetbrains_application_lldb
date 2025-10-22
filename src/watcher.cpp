@@ -48,18 +48,36 @@ void watch(const std::vector<std::string>& args)
 {
     std::string symbol;
     std::string path;
+    std::vector<char*> execve_args_vector;
+    bool parsing_gwatch_args = true;
 
     for (int i = 0; i < args.size(); i++)
     {
-        if (args[i] == "--var" && i + 1 < args.size())
+        if (args[i] == "--")
         {
-            symbol = args[i + 1];
+            parsing_gwatch_args = false;
+            continue;
         }
-        if (args[i] == "--exec" && i + 1 < args.size())
+
+        if (parsing_gwatch_args)
         {
-            path = args[i + 1];
+            if (args[i] == "--var" && i + 1 < args.size())
+            {
+                symbol = args[i + 1];
+            }
+            if (args[i] == "--exec" && i + 1 < args.size())
+            {
+                path = args[i + 1];
+                execve_args_vector.push_back(path.data());
+            }
+        }
+        else
+        {
+            execve_args_vector.push_back(const_cast<char*>(args[i].data()));
         }
     }
+
+    execve_args_vector.push_back(nullptr);
 
     if (symbol == "") throw std::runtime_error("--var was not given.");
     if (path == "") throw std::runtime_error("--exec was not given.");
@@ -69,8 +87,7 @@ void watch(const std::vector<std::string>& args)
     if (pid == 0)
     {
         ptrace(PTRACE_TRACEME, 0, nullptr, nullptr);
-        char* args[2] = {path.data(), nullptr};
-        execve(path.data(), args, nullptr);
+        execve(path.data(), execve_args_vector.data(), nullptr);
     }
     else
     {

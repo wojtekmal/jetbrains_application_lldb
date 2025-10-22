@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/dwarf_parser_tests.cpp" "CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o.d"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/elf_parser_tests.cpp" "CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o.d"
+  "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/invocation_tests.cpp" "CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o.d"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/watcher_tests.cpp" "CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o" "gcc" "CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o.d"
   "" "bin/run_tests" "gcc" "CMakeFiles/run_tests.dir/link.d"
   )

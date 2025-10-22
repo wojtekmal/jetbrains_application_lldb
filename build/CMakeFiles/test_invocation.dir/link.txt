@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_invocation.dir/link.d CMakeFiles/test_invocation.dir/test_programs/test_invocation.cpp.o -o bin/test_invocation

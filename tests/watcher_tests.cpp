@@ -23,7 +23,7 @@ public:
     }
 };
 
-TEST(TracerIntegrationTest, TracesIntegerWritesCorrectly)
+TEST(WatcherTest, TracesIntegerWritesCorrectly)
 {
     auto test_program_path = test_bin_dir / "test_int_incrementation";
     std::string symbol_to_watch = "global_int_to_watch";
@@ -42,6 +42,30 @@ global_int_to_watch    read     3
 global_int_to_watch    write    3 -> 4
 global_int_to_watch    read     4
 global_int_to_watch    write    4 -> 5
+)";
+
+    EXPECT_EQ(interceptor_buffer.str(), expected_output);
+}
+
+TEST(WatcherTest, TracesNegativeIntegersCorrectly)
+{
+    auto test_program_path = test_bin_dir / "test_int_decrementation";
+    std::string symbol_to_watch = "global_int_to_watch";
+
+    std::stringstream interceptor_buffer;
+    OutputInterceptor interceptor(interceptor_buffer);
+    watch({"gwatch", "--var", symbol_to_watch, "--exec", test_program_path});
+
+    std::string expected_output = R"(global_int_to_watch    read     0
+global_int_to_watch    write    0 -> -1
+global_int_to_watch    read     -1
+global_int_to_watch    write    -1 -> -2
+global_int_to_watch    read     -2
+global_int_to_watch    write    -2 -> -3
+global_int_to_watch    read     -3
+global_int_to_watch    write    -3 -> -4
+global_int_to_watch    read     -4
+global_int_to_watch    write    -4 -> -5
 )";
 
     EXPECT_EQ(interceptor_buffer.str(), expected_output);

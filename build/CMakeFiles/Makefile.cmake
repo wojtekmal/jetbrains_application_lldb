@@ -22,6 +22,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "_deps/googletest-src/googletest/cmake/internal_utils.cmake"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/dwarf_parser_tests.cpp"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/elf_parser_tests.cpp"
+  "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/invocation_tests.cpp"
   "/home/wojtekmal/informatyka/internships/jetbrains_application_lldb/tests/watcher_tests.cpp"
   "/usr/share/cmake-3.31/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
   "/usr/share/cmake-3.31/Modules/CMakeCInformation.cmake"

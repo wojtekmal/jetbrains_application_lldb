@@ -42,6 +42,7 @@ add_executable(
     tests/elf_parser_tests.cpp
     tests/watcher_tests.cpp
     tests/dwarf_parser_tests.cpp
+    tests/invocation_tests.cpp
 )
 
 # Copies of the test executables are kept and protected from new

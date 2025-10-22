@@ -517,6 +517,30 @@ tests/elf_parser_tests.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.s
 .PHONY : tests/elf_parser_tests.cpp.s
 
+tests/invocation_tests.o: tests/invocation_tests.cpp.o
+.PHONY : tests/invocation_tests.o
+
+# target to build an object file
+tests/invocation_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o
+.PHONY : tests/invocation_tests.cpp.o
+
+tests/invocation_tests.i: tests/invocation_tests.cpp.i
+.PHONY : tests/invocation_tests.i
+
+# target to preprocess a source file
+tests/invocation_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.i
+.PHONY : tests/invocation_tests.cpp.i
+
+tests/invocation_tests.s: tests/invocation_tests.cpp.s
+.PHONY : tests/invocation_tests.s
+
+# target to generate assembly for a file
+tests/invocation_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.s
+.PHONY : tests/invocation_tests.cpp.s
+
 tests/watcher_tests.o: tests/watcher_tests.cpp.o
 .PHONY : tests/watcher_tests.o
 
@@ -591,6 +615,9 @@ help:
 	@echo "... tests/elf_parser_tests.o"
 	@echo "... tests/elf_parser_tests.i"
 	@echo "... tests/elf_parser_tests.s"
+	@echo "... tests/invocation_tests.o"
+	@echo "... tests/invocation_tests.i"
+	@echo "... tests/invocation_tests.s"
 	@echo "... tests/watcher_tests.o"
 	@echo "... tests/watcher_tests.i"
 	@echo "... tests/watcher_tests.s"

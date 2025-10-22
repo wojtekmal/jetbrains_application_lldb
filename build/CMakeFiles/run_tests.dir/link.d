@@ -5,6 +5,7 @@ bin/run_tests: \
   CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o \
   CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o \
   CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o \
+  CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o \
   lib/libgwatch_lib.a \
   lib/libgtest_main.a \
   lib/libgtest.a \
@@ -47,6 +48,8 @@ CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o:
 CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o:
 
 CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o:
+
+CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o:
 
 lib/libgwatch_lib.a:
 

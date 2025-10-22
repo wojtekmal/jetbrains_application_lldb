@@ -1,10 +1,13 @@
-ElfParserTest.HandlesNonexistantExecutable 1 0.00225263
-ElfParserTest.CorrectlyFindsSymbolAddress 1 0.00276906
+ElfParserTest.HandlesNonexistantExecutable 4 0.000604703
+ElfParserTest.CorrectlyFindsSymbolAddress 4 0.000783199
 TracerIntegrationTest.TracesIntegerWritesCorrectly 1 0.0339763
-DwarfParserTest.ReadsULEB128Correctly 1 0.00407513
-DwarfParserTest.ReadsSLEB128Correctly 1 0.00388076
-DwarfParserTest.ReadsBytesCorrectly 1 0.00433525
-DwarfParserTest.ReadsStringCorrectly 1 0.00402398
-DwarfParserTest.ReadsAbbrevCorrectly 1 0.00497758
-DwarfParserTest.ReadsCompilationUnitCorrectly 1 0.003309
+DwarfParserTest.ReadsULEB128Correctly 4 0.000522898
+DwarfParserTest.ReadsSLEB128Correctly 4 0.000477616
+DwarfParserTest.ReadsBytesCorrectly 4 0.000483397
+DwarfParserTest.ReadsStringCorrectly 4 0.000415882
+DwarfParserTest.ReadsAbbrevCorrectly 4 0.000554272
+DwarfParserTest.ReadsCompilationUnitCorrectly 4 0.000584049
+WatcherTest.TracesIntegerWritesCorrectly 3 0.00803999
+WatcherTest.TracesNegativeIntegersCorrectly 3 0.001677
+InvocationTest.CLIToolExecutesCorrectly 1 0.00154695
 ---

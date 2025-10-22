@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/run_tests.dir/tests/dwarf_parser_tests.cpp.o.d"
   "CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o"
   "CMakeFiles/run_tests.dir/tests/elf_parser_tests.cpp.o.d"
+  "CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o"
+  "CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o.d"
   "CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o"
   "CMakeFiles/run_tests.dir/tests/watcher_tests.cpp.o.d"
   "bin/run_tests"
