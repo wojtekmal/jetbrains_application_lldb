@@ -774,6 +774,10 @@ CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o: /home/wojtekmal/informaty
   /usr/include/c++/14/bits/exception.h \
   /usr/include/c++/14/bits/exception_defines.h \
   /usr/include/c++/14/bits/exception_ptr.h \
+  /usr/include/c++/14/bits/fs_dir.h \
+  /usr/include/c++/14/bits/fs_fwd.h \
+  /usr/include/c++/14/bits/fs_ops.h \
+  /usr/include/c++/14/bits/fs_path.h \
   /usr/include/c++/14/bits/functexcept.h \
   /usr/include/c++/14/bits/functional_hash.h \
   /usr/include/c++/14/bits/hash_bytes.h \
@@ -848,6 +852,7 @@ CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o: /home/wojtekmal/informaty
   /usr/include/c++/14/cctype \
   /usr/include/c++/14/cerrno \
   /usr/include/c++/14/clocale \
+  /usr/include/c++/14/codecvt \
   /usr/include/c++/14/compare \
   /usr/include/c++/14/concepts \
   /usr/include/c++/14/condition_variable \
@@ -869,6 +874,7 @@ CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o: /home/wojtekmal/informaty
   /usr/include/c++/14/ext/numeric_traits.h \
   /usr/include/c++/14/ext/string_conversions.h \
   /usr/include/c++/14/ext/type_traits.h \
+  /usr/include/c++/14/filesystem \
   /usr/include/c++/14/functional \
   /usr/include/c++/14/initializer_list \
   /usr/include/c++/14/iomanip \

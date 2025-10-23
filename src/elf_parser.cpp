@@ -54,25 +54,24 @@ std::optional<SymbolInfo> read_elf(const std::string& symbol, const fs::path& ex
     std::optional<Elf64_Shdr> debug_info_header_opt;
     std::optional<Elf64_Shdr> debug_abbrev_header_opt;
     std::optional<Elf64_Shdr> debug_str_header_opt;
-    std::string debug_info_name = ".debug_info";
-    std::string debug_abbrev_name = ".debug_abbrev";
-    std::string debug_str_name = ".debug_str";
 
     for (int i = 0; i < elf_header.e_shnum; i++)
     {
-        if (section_headers[i].sh_type == SHT_SYMTAB)
+        std::string section_header_name = section_name_string_table + section_headers[i].sh_name;
+
+        if (section_header_name == ".symtab")
         {
             symbol_table_header_opt = section_headers[i];
         }
-        if (section_name_string_table + section_headers[i].sh_name == debug_info_name)
+        if (section_header_name == ".debug_info")
         {
             debug_info_header_opt = section_headers[i];
         }
-        if (section_name_string_table + section_headers[i].sh_name == debug_abbrev_name)
+        if (section_header_name == ".debug_abbrev")
         {
             debug_abbrev_header_opt = section_headers[i];
         }
-        if (section_name_string_table + section_headers[i].sh_name == debug_str_name)
+        if (section_header_name == ".debug_str")
         {
             debug_str_header_opt = section_headers[i];
         }
