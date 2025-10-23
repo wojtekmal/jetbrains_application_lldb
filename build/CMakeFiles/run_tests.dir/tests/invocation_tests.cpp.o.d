@@ -276,4 +276,7 @@ CMakeFiles/run_tests.dir/tests/invocation_tests.cpp.o: \
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/gtest-test-part.h \
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/gtest-typed-test.h \
  /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/gtest_pred_impl.h \
- /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h
+ /home/wojtekmal/informatyka/internships/jetbrains_application_lldb/build/_deps/googletest-src/googletest/include/gtest/gtest_prod.h \
+ /usr/include/c++/14/filesystem /usr/include/c++/14/bits/fs_fwd.h \
+ /usr/include/c++/14/bits/fs_path.h /usr/include/c++/14/codecvt \
+ /usr/include/c++/14/bits/fs_dir.h /usr/include/c++/14/bits/fs_ops.h

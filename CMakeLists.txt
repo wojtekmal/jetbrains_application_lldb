@@ -49,6 +49,7 @@ add_executable(
 # builds in order to make tests stable.
 target_compile_definitions(run_tests PRIVATE
   "TEST_BIN_DIR=\"${CMAKE_CURRENT_SOURCE_DIR}/test_programs\""
+  "GWATCH=\"${CMAKE_CURRENT_SOURCE_DIR}/build/bin/gwatch\""
 )
 
 target_include_directories(run_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
